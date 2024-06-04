@@ -3,25 +3,27 @@
 function leetspeak($str)
 {
     $str = strtoupper($str); // Convertit la chaîne en majuscules
+    $new_str = ''; 
+
     for ($i = 0; $i < strlen($str); $i++) {
         if ($str[$i] == 'E') {
-            $str[$i] = '3';
-        }
-        if ($str[$i] == 'O') {
-            $str[$i] = '0';
-        }
-        if ($str[$i] == 'I' or $str[$i] =='L') {
-            $str[$i] = '1';
-        }
-        if ($str[$i] == 'S') {
-            $str[$i] = '5';
-        }
-        if ($str[$i] == 'T') {
-            $str[$i] = '7';
+            $new_str .= '3';
+        } elseif ($str[$i] == 'O') {
+            $new_str .= '0';
+        } elseif ($str[$i] == 'I' || $str[$i] == 'L') {
+            $new_str .= '1';
+        } elseif ($str[$i] == 'S') {
+            $new_str .= '5';
+        } elseif ($str[$i] == 'T') {
+            $new_str .= '7';
+        } else {
+            $new_str .= $str[$i];
         }
     }
-    return $str;
+
+    return $new_str;
 }
+
 $str = 'elephant';
 
 echo leetspeak($str);
